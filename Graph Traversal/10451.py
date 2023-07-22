@@ -45,6 +45,9 @@ https://www.acmicpc.net/problem/10451
 2
 1
 
+insight
+>> 순열의 특성상 한 숫자가 반복등장이 불가능하므로 어떤 경우든 사이클이 형성되는 것을 알게됨
+
 '''
 
 from collections import deque
