@@ -85,6 +85,11 @@ https://www.acmicpc.net/problem/11725
 6
 10
 5
+
+insight
+>> 새로 방문한 곳에서 연결된 노드 검사시 from노드를 찾으면 그것이 부모이다. 
+   == 곧 자식노드에서 연결된 노드들 중 이미 방문했던 곳이면 부모노드임.
+   
 '''
 
 from collections import deque
