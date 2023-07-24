@@ -32,6 +32,8 @@ https://www.acmicpc.net/problem/2606
 예제 출력 2
 2
 
+>> BFS알고리즘 처음 공부한 문제
+
 '''
 from collections import deque
 import sys
