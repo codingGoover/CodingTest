@@ -21,6 +21,9 @@ https://www.acmicpc.net/problem/13549
 
 힌트
 수빈이가 5-10-9-18-17 순으로 가면 2초만에 동생을 찾을 수 있다.
+
+반례
+https://forward-gradually.tistory.com/70
 '''
 
 import sys
