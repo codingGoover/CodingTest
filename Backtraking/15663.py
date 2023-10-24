@@ -5,6 +5,8 @@ insight
     >> 재귀 호출 전, 방문할 숫자 = 이전값(prev)을 기억하여 
        그 다음턴때 중복된 숫자인지 아닌지 체크한다. 
        변수 저장과 비교 위치가 중요함...
+       
+       + 추가_ prev 변수말고 딕셔너리visited {숫자: 숫자개수}로 해결가능한 방식 
 
 문제
 https://www.acmicpc.net/problem/15663
@@ -118,13 +120,6 @@ def dfs(len,sequence):
 N,M= map(int,input().split())
 
 number=sorted(map(int,input().split()))
-# nset= sorted(set(number))
-
-# for i in nset:
-#     visited=[False]*N
-#     visited[number.index(i)]=True    
-#     dfs(1,[i])
-    
 visited=[False]*N
 dfs(0,[])
 
@@ -135,3 +130,44 @@ dfs(0,[])
 #    return
 
 # answers = sorted(list(set(map(tuple, answers))))
+
+
+
+
+import sys
+
+def back_tracking(cnt):
+
+
+    if cnt == M:
+        print(*answer)
+        return
+
+    for k in visited:
+        if visited[k]:
+            visited[k] -= 1 # k를 사용할 것으로 -1
+            answer.append(k) # answer에 더해준다.
+            back_tracking(cnt + 1) # 백트래킹
+            visited[k] += 1 # k를 사용안한 것으로 +1
+            answer.pop() # answer에서 빼준다.
+
+
+N,M = map(int,sys.stdin.readline().split())
+
+number = sorted(map(int,input().split()))
+visited = {}
+answer = []
+
+# 반복문을 통해 visited에 숫자의 개수를 입력
+for i in number:
+    if i in visited:
+        visited[i] += 1
+    else:
+        visited[i] = 1
+
+# 백트래킹
+back_tracking(0)
+
+
+
+
