@@ -1,13 +1,3 @@
-# 1번 중복된 문자 제거 
-# my_string='people'
-# l= list(my_string)
-# print(l)
-# d= dict.fromkeys(l)
-# print(d)
-# list(d) # 키만 가지고옴
-# print(''.join(d))
-
-
 '''
 안전지대 Lv0
 
@@ -29,7 +19,7 @@ def solution(board):
     N= len(board)
     
     #처음부터 1로 채워진 같은 사이즈의 보드
-    arr=[[1 for _ in range(N)]for _ in range(N)]
+    arr=[[1]*N for _ in range(N)]
     
     for r in range(N):
         for c in range(N):
@@ -53,3 +43,37 @@ def solution(board):
     return sum([sum(a) for a in arr])
     
 solution([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0]])
+
+
+# 지여니 코드 
+def solution(board):
+    answer = 0
+    dx=[0,0,-1,1,1,-1,-1,1] 
+    dy=[1,-1,0,0,1,1,-1,-1]
+    n= len(board[0])
+    mine=[[1 for _ in range(n)]for _ in range(n)]
+    
+    for y in range(n):
+        for x in range(n):
+            if board[y][x]==1:
+                mine[y][x]=0
+                for i in range(8):
+                    nx=dx[i]+x
+                    ny=dy[i]+y
+                    if 0<=nx<n and 0<=ny<n:
+                        mine[ny][nx]=0
+       
+    for i in range(n):
+        answer+=sum(mine[i])
+                
+    return answer
+
+
+# 1번 중복된 문자 제거 
+# my_string='people'
+# l= list(my_string)
+# print(l)
+# d= dict.fromkeys(l)
+# print(d)
+# list(d) # 키만 가지고옴
+# print(''.join(d))
